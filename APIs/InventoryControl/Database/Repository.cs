@@ -26,6 +26,20 @@ public class Repository : IRepository
         return alertContext.Alerts.OrderBy(p => p.Id).ToList();
     }
 
+    public void AddItem(Item item)
+    {
+        LoadItems();
+        itemContext.Items.Add(item);
+        itemContext.SaveChanges();
+    }
+
+    public void RemoveItem(int itemId)
+    {
+        LoadItems();
+        itemContext.Remove(itemContext.Items.First(p => p.Id == itemId));
+        itemContext.SaveChanges();
+    }
+
     private void LoadItems()
     {
         itemContext.Items.RemoveRange(itemContext.Items);
@@ -39,6 +53,20 @@ public class Repository : IRepository
         }
     }
 
+    public void SaveItems()
+    {
+        using (StreamWriter writer = new StreamWriter("./Data/items.json"))
+        {
+            var jsonString = JsonSerializer.Serialize<List<Item>>(itemContext.Items.ToList());
+            writer.Write(jsonString);
+        }
+    }
+
+    public void UpdateOrderDate(int itemId)
+    {
+        itemContext.Items.First(p => p.Id == itemId).DaysSinceLastOrder = 0;
+    }
+
     private void LoadAlerts()
     {
         alertContext.Alerts.RemoveRange(alertContext.Alerts);
@@ -50,5 +78,10 @@ public class Repository : IRepository
             alertContext.Alerts.AddRange(alerts);
             alertContext.SaveChanges();
         }
+    }
+
+    public Item? FindItem(int itemId)
+    {
+        return itemContext.Items.FirstOrDefault(p => p.Id == itemId);
     }
 }

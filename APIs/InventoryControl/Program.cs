@@ -1,10 +1,10 @@
 using InventoryControl.Database;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace InventoryControl;
 class Program
 {
-    private static InventoryController controller = InventoryController.Instance;
     static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +13,12 @@ class Program
         SetupApp(app);
 
         // this task is responsible for polling the warehouse api for updates 
-        Task task = Task.Run(controller.MonitorStock);
+        var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+        using (var scope = scopedFactory.CreateScope())
+        {
+            var scopedConnection = scope.ServiceProvider.GetRequiredService<InventoryController>();
+            Task task = Task.Run(scopedConnection.MonitorStock);
+        }
 
         app.Run();
     }
@@ -21,6 +26,7 @@ class Program
     private static void BuildService(WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<IRepository, Repository>();
+        builder.Services.AddTransient<InventoryController>();
         builder.Services.AddControllers();
         builder.Services.AddDbContext<ItemContext>(options =>
             options.UseInMemoryDatabase("Items"));

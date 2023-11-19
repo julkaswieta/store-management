@@ -6,4 +6,5 @@ public class Item
     public required string Name { get; set; }
     public int Quantity { get; set; }
     public required string Category { get; set; }
+    public int DaysSinceLastOrder { get; set; }
 }

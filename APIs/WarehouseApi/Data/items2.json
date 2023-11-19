@@ -1,0 +1,58 @@
+[
+    {
+        "Id": 1,
+        "Name": "Chair",
+        "Category": "Furniture",
+        "Quantity": 1,
+        "DaysSinceLastOrder": 15
+    },
+    {
+        "Id": 2,
+        "Name": "Sofa",
+        "Category": "Furniture",
+        "Quantity": 19,
+        "DaysSinceLastOrder": 4
+    },
+    {
+        "Id": 3,
+        "Name": "Towel",
+        "Category": "Accessories",
+        "Quantity": 30,
+        "DaysSinceLastOrder": 10
+    },
+    {
+        "Id": 4,
+        "Name": "Towel Rack",
+        "Category": "Accessories",
+        "Quantity": 100,
+        "DaysSinceLastOrder": 2
+    },
+    {
+        "Id": 5,
+        "Name": "Table",
+        "Category": "Furniture",
+        "Quantity": 5,
+        "DaysSinceLastOrder": 5
+    },
+    {
+        "Id": 6,
+        "Name": "Candle",
+        "Category": "Decorations",
+        "Quantity": 100,
+        "DaysSinceLastOrder": 1
+    },
+    {
+        "Id": 7,
+        "Name": "Painting",
+        "Category": "Decorations",
+        "Quantity": 30,
+        "DaysSinceLastOrder": 5
+    },
+    {
+        "Id": 9,
+        "Name": "Pillow",
+        "Category": "Bedding",
+        "Quantity": 50,
+        "DaysSinceLastOrder": 3
+    }
+]

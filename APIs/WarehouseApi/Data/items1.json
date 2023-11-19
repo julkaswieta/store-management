@@ -1,85 +1,85 @@
 [
     {
         "Id": 1,
-        "Name": "Gouda",
-        "Category": "Cheese",
+        "Name": "Chair",
+        "Category": "Furniture",
         "Quantity": 30,
         "DaysSinceLastOrder": 10
     },
     {
         "Id": 2,
-        "Name": "Bread",
-        "Category": "Bakery",
+        "Name": "Sofa",
+        "Category": "Furniture",
         "Quantity": 100,
         "DaysSinceLastOrder": 2
     },
     {
         "Id": 3,
-        "Name": "Carrot",
-        "Category": "Vegetables",
+        "Name": "Towel",
+        "Category": "Accessories",
         "Quantity": 30,
         "DaysSinceLastOrder": 10
     },
     {
         "Id": 4,
-        "Name": "Tea",
-        "Category": "Beverages",
+        "Name": "Towel Rack",
+        "Category": "Accessories",
         "Quantity": 2,
         "DaysSinceLastOrder": 25
     },
     {
         "Id": 5,
-        "Name": "Cucumber",
-        "Category": "Vegetables",
+        "Name": "Table",
+        "Category": "Furniture",
         "Quantity": 5,
         "DaysSinceLastOrder": 5
     },
     {
         "Id": 6,
-        "Name": "Apple",
-        "Category": "Fruit",
+        "Name": "Candle",
+        "Category": "Decorations",
         "Quantity": 100,
         "DaysSinceLastOrder": 1
     },
     {
         "Id": 7,
-        "Name": "Mozzarella",
-        "Category": "Cheese",
+        "Name": "Painting",
+        "Category": "Decorations",
         "Quantity": 30,
         "DaysSinceLastOrder": 5
     },
     {
         "Id": 8,
-        "Name": "Coffee",
-        "Category": "Beverages",
+        "Name": "Duvet",
+        "Category": "Bedding",
         "Quantity": 3,
         "DaysSinceLastOrder": 20
     },
     {
         "Id": 9,
-        "Name": "Chocolate",
-        "Category": "Confectionery",
+        "Name": "Pillow",
+        "Category": "Bedding",
         "Quantity": 50,
         "DaysSinceLastOrder": 3
     },
     {
         "Id": 10,
-        "Name": "Milk",
-        "Category": "Dairy",
+        "Name": "Wardrobe",
+        "Category": "Furniture",
         "Quantity": 41,
         "DaysSinceLastOrder": 15
     },
     {
         "Id": 11,
-        "Name": "Croissant",
-        "Category": "Bakery",
+        "Name": "Mug",
+        "Category": "Kitchenware",
         "Quantity": 15,
         "DaysSinceLastOrder": 13
     },
     {
         "Id": 12,
-        "Name": "Wine",
-        "Category": "Alcohol",
+        "Name": "Plate",
+        "Category": "Kitchenware",
         "Quantity": 20,
         "DaysSinceLastOrder": 5
     }

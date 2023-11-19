@@ -1,0 +1,58 @@
+[
+    {
+        "Id": 1,
+        "Name": "Chair",
+        "Category": "Furniture",
+        "Quantity": 30,
+        "DaysSinceLastOrder": 10
+    },
+    {
+        "Id": 2,
+        "Name": "Sofa",
+        "Category": "Furniture",
+        "Quantity": 100,
+        "DaysSinceLastOrder": 2
+    },
+    {
+        "Id": 13,
+        "Name": "TV",
+        "Category": "Electronics",
+        "Quantity": 2,
+        "DaysSinceLastOrder": 1
+    },
+    {
+        "Id": 14,
+        "Name": "Speaker",
+        "Category": "Electronics",
+        "Quantity": 2,
+        "DaysSinceLastOrder": 25
+    },
+    {
+        "Id": 15,
+        "Name": "Curtains",
+        "Category": "Decorations",
+        "Quantity": 100,
+        "DaysSinceLastOrder": 5
+    },
+    {
+        "Id": 6,
+        "Name": "Candle",
+        "Category": "Decorations",
+        "Quantity": 100,
+        "DaysSinceLastOrder": 1
+    },
+    {
+        "Id": 7,
+        "Name": "Painting",
+        "Category": "Decorations",
+        "Quantity": 30,
+        "DaysSinceLastOrder": 5
+    },
+    {
+        "Id": 8,
+        "Name": "Duvet",
+        "Category": "Bedding",
+        "Quantity": 3,
+        "DaysSinceLastOrder": 20
+    }
+]
