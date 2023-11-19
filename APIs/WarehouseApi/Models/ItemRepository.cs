@@ -1,7 +1,4 @@
-
 using System.Text.Json;
-using Microsoft.EntityFrameworkCore;
-using NuGet.Protocol;
 
 namespace WarehouseApi.Models;
 
@@ -15,14 +12,14 @@ public class ItemRepository : IItemRepository
 
     public IEnumerable<Item> GetItems()
     {
-        context.Items.RemoveRange(context.Items);
-        context.SaveChanges();
         LoadItems();
         return context.Items.OrderBy(p => p.Id).ToList();
     }
 
     private void LoadItems()
     {
+        context.Items.RemoveRange(context.Items);
+        context.SaveChanges();
         using (StreamReader reader = new StreamReader("./Data/items.json"))
         {
             string jsonString = reader.ReadToEnd();

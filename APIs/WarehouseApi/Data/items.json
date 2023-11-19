@@ -2,13 +2,85 @@
     {
         "Id": 1,
         "Name": "Gouda",
+        "Category": "Cheese",
         "Quantity": 30,
-        "Category": "Cheese"
+        "DaysSinceLastOrder": 10
     },
     {
         "Id": 2,
         "Name": "Bread",
-        "Quantity": 40,
-        "Category": "Bakery"
+        "Category": "Bakery",
+        "Quantity": 100,
+        "DaysSinceLastOrder": 2
+    },
+    {
+        "Id": 3,
+        "Name": "Carrot",
+        "Category": "Vegetables",
+        "Quantity": 30,
+        "DaysSinceLastOrder": 10
+    },
+    {
+        "Id": 4,
+        "Name": "Tea",
+        "Category": "Beverages",
+        "Quantity": 2,
+        "DaysSinceLastOrder": 25
+    },
+    {
+        "Id": 5,
+        "Name": "Cucumber",
+        "Category": "Vegetables",
+        "Quantity": 5,
+        "DaysSinceLastOrder": 5
+    },
+    {
+        "Id": 6,
+        "Name": "Apple",
+        "Category": "Fruit",
+        "Quantity": 100,
+        "DaysSinceLastOrder": 1
+    },
+    {
+        "Id": 7,
+        "Name": "Mozzarella",
+        "Category": "Cheese",
+        "Quantity": 30,
+        "DaysSinceLastOrder": 5
+    },
+    {
+        "Id": 8,
+        "Name": "Coffee",
+        "Category": "Beverages",
+        "Quantity": 3,
+        "DaysSinceLastOrder": 20
+    },
+    {
+        "Id": 9,
+        "Name": "Chocolate",
+        "Category": "Confectionery",
+        "Quantity": 50,
+        "DaysSinceLastOrder": 3
+    },
+    {
+        "Id": 10,
+        "Name": "Milk",
+        "Category": "Dairy",
+        "Quantity": 41,
+        "DaysSinceLastOrder": 15
+    },
+    {
+        "Id": 11,
+        "Name": "Croissant",
+        "Category": "Bakery",
+        "Quantity": 15,
+        "DaysSinceLastOrder": 13
+    },
+    {
+        "Id": 12,
+        "Name": "Wine",
+        "Category": "Alcohol",
+        "Quantity": 20,
+        "DaysSinceLastOrder": 5
     }
 ]
