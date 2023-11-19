@@ -1,17 +1,17 @@
 using System.Text.Json;
-using InventoryControl.Models;
+using PriceControlApi.Models;
 
-namespace InventoryControl.Database;
+namespace PriceControlApi.Database;
 
 public class Repository : IRepository
 {
     private readonly ItemContext itemContext;
-    private readonly AlertContext alertContext;
+    private readonly OfferContext offerContext;
 
-    public Repository(ItemContext itemContext, AlertContext alertContext)
+    public Repository(ItemContext itemContext, OfferContext offerContext)
     {
         this.itemContext = itemContext;
-        this.alertContext = alertContext;
+        this.offerContext = offerContext;
     }
 
     public IEnumerable<Item> GetItems()
@@ -20,10 +20,10 @@ public class Repository : IRepository
         return itemContext.Items.OrderBy(p => p.Id).ToList();
     }
 
-    public IEnumerable<Alert> GetAlerts()
+    public IEnumerable<Offer> GetOffers()
     {
-        LoadAlerts();
-        return alertContext.Alerts.OrderBy(p => p.Id).ToList();
+        LoadOffers();
+        return offerContext.Offers.OrderBy(p => p.Id).ToList();
     }
 
     private void LoadItems()
@@ -39,16 +39,16 @@ public class Repository : IRepository
         }
     }
 
-    private void LoadAlerts()
+    private void LoadOffers()
     {
-        alertContext.Alerts.RemoveRange(alertContext.Alerts);
-        alertContext.SaveChanges();
-        using (StreamReader reader = new StreamReader("./Data/alerts.json"))
+        offerContext.Offers.RemoveRange(offerContext.Offers);
+        offerContext.SaveChanges();
+        using (StreamReader reader = new StreamReader("./Data/offers.json"))
         {
             string jsonString = reader.ReadToEnd();
-            var alerts = JsonSerializer.Deserialize<List<Alert>>(jsonString);
-            alertContext.Alerts.AddRange(alerts);
-            alertContext.SaveChanges();
+            var offers = JsonSerializer.Deserialize<List<Offer>>(jsonString);
+            offerContext.Offers.AddRange(offers);
+            offerContext.SaveChanges();
         }
     }
 }

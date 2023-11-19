@@ -2,106 +2,91 @@
     {
         "Id": 1,
         "Name": "Chair",
-        "Quantity": 1,
         "Category": "Furniture",
-        "DaysSinceLastOrder": 0
+        "Price": 100
     },
     {
         "Id": 2,
         "Name": "Sofa",
-        "Quantity": 19,
         "Category": "Furniture",
-        "DaysSinceLastOrder": 0
+        "Price": 555
     },
     {
         "Id": 3,
         "Name": "Towel",
-        "Quantity": 30,
         "Category": "Accessories",
-        "DaysSinceLastOrder": 10
+        "Price": 9.99
     },
     {
         "Id": 4,
         "Name": "Towel Rack",
-        "Quantity": 100,
         "Category": "Accessories",
-        "DaysSinceLastOrder": 0
+        "Price": 25.49
     },
     {
         "Id": 5,
         "Name": "Table",
-        "Quantity": 5,
         "Category": "Furniture",
-        "DaysSinceLastOrder": 0
+        "Price": 150
     },
     {
         "Id": 6,
         "Name": "Candle",
-        "Quantity": 100,
         "Category": "Decorations",
-        "DaysSinceLastOrder": 1
+        "Price": 2.49
     },
     {
         "Id": 7,
         "Name": "Painting",
-        "Quantity": 30,
         "Category": "Decorations",
-        "DaysSinceLastOrder": 5
+        "Price": 300
     },
     {
         "Id": 8,
         "Name": "Duvet",
-        "Quantity": 3,
         "Category": "Bedding",
-        "DaysSinceLastOrder": 0
+        "Price": 50.99
     },
     {
         "Id": 9,
         "Name": "Pillow",
-        "Quantity": 50,
         "Category": "Bedding",
-        "DaysSinceLastOrder": 3
+        "Price": 10.99
     },
     {
         "Id": 10,
         "Name": "Wardrobe",
-        "Quantity": 41,
         "Category": "Furniture",
-        "DaysSinceLastOrder": 15
+        "Price": 150.75
     },
     {
         "Id": 11,
         "Name": "Mug",
-        "Quantity": 15,
         "Category": "Kitchenware",
-        "DaysSinceLastOrder": 0
+        "Price": 3.25
     },
     {
         "Id": 12,
         "Name": "Plate",
-        "Quantity": 20,
         "Category": "Kitchenware",
-        "DaysSinceLastOrder": 5
+        "Price": 6.5
     },
     {
         "Id": 13,
         "Name": "TV",
-        "Quantity": 2,
         "Category": "Electronics",
-        "DaysSinceLastOrder": 1
+        "Price": 1000.5
     },
     {
         "Id": 14,
         "Name": "Speaker",
-        "Quantity": 2,
         "Category": "Electronics",
-        "DaysSinceLastOrder": 0
+        "Price": 200
     },
     {
         "Id": 15,
         "Name": "Curtains",
-        "Quantity": 100,
         "Category": "Decorations",
-        "DaysSinceLastOrder": 5
+        "Price": 80
     }
 ]
