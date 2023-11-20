@@ -1,9 +1,9 @@
 [
     {
         "Id": 1,
-        "Name": "Chair",
-        "Category": "Furniture",
-        "Price": 100
+        "Name": "string",
+        "Category": "string",
+        "Price": 0
     },
     {
         "Id": 2,

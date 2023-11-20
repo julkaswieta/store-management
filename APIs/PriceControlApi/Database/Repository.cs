@@ -1,4 +1,6 @@
 using System.Text.Json;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore;
 using PriceControlApi.Models;
 
 namespace PriceControlApi.Database;
@@ -26,6 +28,15 @@ public class Repository : IRepository
         return offerContext.Offers.OrderBy(p => p.Id).ToList();
     }
 
+    public void UpdateItem(Item item)
+    {
+        LoadItems();
+        itemContext.Remove(itemContext.Items.Find(item.Id));
+        itemContext.Items.Add(item);
+        itemContext.SaveChanges();
+        SaveItems();
+    }
+
     private void LoadItems()
     {
         itemContext.Items.RemoveRange(itemContext.Items);
@@ -36,6 +47,15 @@ public class Repository : IRepository
             var items = JsonSerializer.Deserialize<List<Item>>(jsonString);
             itemContext.Items.AddRange(items);
             itemContext.SaveChanges();
+        }
+    }
+
+    private void SaveItems()
+    {
+        using (StreamWriter writer = new StreamWriter("./Data/items.json"))
+        {
+            var items = JsonSerializer.Serialize<List<Item>>(itemContext.Items.ToList());
+            writer.Write(items);
         }
     }
 
@@ -50,5 +70,39 @@ public class Repository : IRepository
             offerContext.Offers.AddRange(offers);
             offerContext.SaveChanges();
         }
+    }
+
+    public void UpdateOffer(Offer offer)
+    {
+        LoadOffers();
+        offerContext.Remove(offerContext.Offers.Find(offer.Id));
+        offerContext.Offers.Add(offer);
+        offerContext.SaveChanges();
+        SaveOffers();
+    }
+
+    private void SaveOffers()
+    {
+        using (StreamWriter writer = new StreamWriter("./Data/offers.json"))
+        {
+            var offers = JsonSerializer.Serialize<List<Offer>>(offerContext.Offers.ToList());
+            writer.Write(offers);
+        }
+    }
+
+    public void AddOffer(Offer offer)
+    {
+        LoadOffers();
+        offerContext.Offers.Add(offer);
+        offerContext.SaveChanges();
+        SaveOffers();
+    }
+
+    public void DeleteOffer(int id)
+    {
+        LoadOffers();
+        offerContext.Offers.Remove(offerContext.Offers.Find(id));
+        offerContext.SaveChanges();
+        SaveOffers();
     }
 }
