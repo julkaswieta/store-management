@@ -1,0 +1,23 @@
+[
+    {
+        "Id": 3,
+        "CustomerId": 14,
+        "ItemId": 1,
+        "AmountRequested": 30,
+        "Status": "new"
+    },
+    {
+        "Id": 2,
+        "CustomerId": 7,
+        "ItemId": 4,
+        "AmountRequested": 1000,
+        "Status": "new"
+    },
+    {
+        "Id": 1,
+        "CustomerId": 3,
+        "ItemId": 14,
+        "AmountRequested": 1333,
+        "Status": "new"
+    }
+]
