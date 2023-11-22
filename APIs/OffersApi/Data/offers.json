@@ -1,0 +1,1 @@
+[{"Id":1,"Description":"string","Code":"string","ItemIds":"[1]","LoyalCustomersOnly":true},{"Id":2,"Description":"Free delivery on all products","Code":"FREEDEL","ItemIds":"[2,3]","LoyalCustomersOnly":false},{"Id":3,"Description":"Buy three products, get the cheapest one for free","Code":"3FOR2","ItemIds":"[4,5,7]","LoyalCustomersOnly":false}]
