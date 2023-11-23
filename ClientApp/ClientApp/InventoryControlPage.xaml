@@ -6,10 +6,27 @@
       xmlns:local="clr-namespace:ClientApp"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="InventoryControl">
+      Title="InventoryControl"
+      Loaded="Page_Loaded">
 
     <Grid Background="White">
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="47,28,0,0" VerticalAlignment="Top" Click="btnBack_Click"/>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button Grid.Row ="0" x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="47,28,0,0" VerticalAlignment="Top" Click="btnBack_Click"/>
+        <TextBlock Grid.Row="1" x:Name="txtHeader" Margin="47,10,571,353" FontSize="18" FontWeight="Bold"><Run Text="Inventory Control"/></TextBlock>
+        <TabControl Grid.Row="1" Margin="0,56,0,0" Grid.RowSpan="2">
+            <TabItem Header="Stock updates">
+                <Grid Background="#FFE5E5E5">
+                    <ListBox Name="lstStock" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Low stock alerts">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+
     </Grid>
 </Page>
