@@ -34,7 +34,7 @@ public class Controller : ControllerBase
 
     [HttpPut]
     [Route("items/{id}")]
-    public IActionResult UpdateItem(int id, Item item)
+    public IActionResult UpdateItem(int id, [FromBody] Item item)
     {
         if (id != item.Id)
         {
