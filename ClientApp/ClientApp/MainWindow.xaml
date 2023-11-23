@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:ClientApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    
+    <DockPanel>
+        <Frame x:Name="_NavigationFrame" NavigationUIVisibility="Hidden" />
+    </DockPanel>
 </Window>
