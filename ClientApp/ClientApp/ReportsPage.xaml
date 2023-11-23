@@ -9,7 +9,19 @@
       Title="Reports">
 
     <Grid Background="White">
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="47,28,0,0" VerticalAlignment="Top" Click="btnBack_Click"/>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="47,28,0,0" VerticalAlignment="Top" Click="btnBack_Click"/>
+        <Button x:Name="btnToday" Grid.Row="1" Content="Today" Width="100" HorizontalAlignment="Left" Margin="47,94,0,0" VerticalAlignment="Top" FontSize="16" Click="btnToday_Click"/>
+        <Button x:Name="btnWeek" Grid.Row="1" Content="Week" Width="100" HorizontalAlignment="Left" Margin="47,154,0,0" VerticalAlignment="Top" FontSize="16" Click="btnWeek_Click"/>
+        <Button x:Name="btnMonth" Grid.Row="1" Content="Month" Width="100" HorizontalAlignment="Left" Margin="47,214,0,0" VerticalAlignment="Top" FontSize="16" Click="btnMonth_Click"/>
+        <Button x:Name="btnYear" Grid.Row="1" Content="Year" Width="100" HorizontalAlignment="Left" Margin="47,274,0,0" VerticalAlignment="Top" FontSize="16" Click="btnYear_Click"/>
+        <Label Content="Performance reports" HorizontalAlignment="Left" Margin="47,27,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Report" HorizontalAlignment="Left" Margin="238,89,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock x:Name="txtReport" HorizontalAlignment="Left" Margin="267,128,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="197" Width="342"/>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Margin="237,120,161,77"/>
+
     </Grid>
 </Page>
