@@ -51,4 +51,21 @@ public class Repository : IRepository
             alertContext.SaveChanges();
         }
     }
+
+    public void DeleteAlert(Alert alert)
+    {
+        LoadAlerts();
+        alertContext.Remove(alertContext.Alerts.Find(alert.Id));
+        alertContext.SaveChanges();
+        SaveAlerts();
+    }
+
+    private void SaveAlerts()
+    {
+        using (StreamWriter writer = new StreamWriter("./Data/alerts.json"))
+        {
+            string json = JsonSerializer.Serialize<List<Alert>>(alertContext.Alerts.ToList());
+            writer.Write(json);
+        }
+    }
 }

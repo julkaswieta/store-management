@@ -7,11 +7,11 @@ public sealed class InventoryController : IInventoryController
 {
     private readonly IRepository repository;
 
-    private static readonly string warehouseApiUrl = "http://localhost:3001/items";
-    private static readonly string centralApiUrl = "http://localhost:3002/request";
+    // private static readonly string warehouseApiUrl = "http://localhost:3001/items";
+    // private static readonly string centralApiUrl = "http://localhost:3002/request";
 
-    // private static readonly string warehouseApiUrl = "http://host.docker.internal:3001/items";
-    // private static readonly string centralApiUrl = "http://host.docker.internal:3002/request";
+    private static readonly string warehouseApiUrl = "http://host.docker.internal:3001/items";
+    private static readonly string centralApiUrl = "http://host.docker.internal:3002/request";
 
     public InventoryController(IRepository repository)
     {
@@ -77,7 +77,6 @@ public sealed class InventoryController : IInventoryController
             if (item.Quantity < 20 && item.DaysSinceLastOrder > 3)
             {
                 GenerateAlert(item.Id);
-                localItem.DaysSinceLastOrder = 0;
             }
         }
 
@@ -91,71 +90,67 @@ public sealed class InventoryController : IInventoryController
 
     private async void GenerateAlert(int itemId)
     {
-        // using (HttpClient client = new HttpClient())
-        // {
-        //     try
-        //     {
-        //         var response = await client.GetStringAsync(centralApiUrl);
-        //         Console.WriteLine(response);
-        //     }
-        //     catch (HttpRequestException ex)
-        //     {
-        //         // Handle exceptions
-        //         Console.WriteLine($"Exception: {ex.Message} {ex.StackTrace}");
-        //     }
-        // }
-
-        var options = new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        };
-        List<Alert> existingAlerts = null!;
-        using (StreamReader reader = new StreamReader("./Data/alerts.json"))
+        try
         {
 
-            var json = reader.ReadToEnd();
-            try
+            var options = new JsonSerializerOptions
             {
-                existingAlerts = JsonSerializer.Deserialize<List<Alert>>(json, options);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("no alerts");
-            }
-        }
-        if (existingAlerts == null)
-        {
-            existingAlerts = new List<Alert>();
-            Alert newAlert = new Alert
-            {
-                Id = 1,
-                ItemId = itemId,
-                DateTriggered = DateTime.UtcNow.ToString()
+                PropertyNameCaseInsensitive = true
             };
-            existingAlerts.Add(newAlert);
-        }
-        else
-        {
-            var alertWithSameId = existingAlerts?.Find(p => p.ItemId == itemId);
-            // update date triggered if alert for this item already exists
-            if (alertWithSameId == null)
+            List<Alert> existingAlerts = null!;
+            using (StreamReader reader = new StreamReader("./Data/alerts.json"))
             {
-                int biggestId = existingAlerts.OrderByDescending(p => p.Id).First().Id;
+
+                var json = reader.ReadToEnd();
+                try
+                {
+                    existingAlerts = JsonSerializer.Deserialize<List<Alert>>(json, options);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("no alerts");
+                }
+            }
+            if (existingAlerts == null)
+            {
+                existingAlerts = new List<Alert>();
                 Alert newAlert = new Alert
                 {
-                    Id = biggestId + 1,
+                    Id = 1,
                     ItemId = itemId,
                     DateTriggered = DateTime.UtcNow.ToString()
                 };
                 existingAlerts.Add(newAlert);
             }
-        }
+            else
+            {
+                var alertWithSameId = existingAlerts?.Find(p => p.ItemId == itemId);
+                // create new alert 
+                if (alertWithSameId == null)
+                {
+                    int biggestId = existingAlerts.OrderByDescending(p => p.Id).FirstOrDefault().Id;
+                    Alert newAlert = new Alert
+                    {
+                        Id = biggestId + 1,
+                        ItemId = itemId,
+                        DateTriggered = DateTime.UtcNow.ToString()
+                    };
+                    existingAlerts.Add(newAlert);
+                }
+            }
 
-        // save them to the local db
-        using (StreamWriter writer = new StreamWriter("./Data/alerts.json"))
-        {
-            var json = JsonSerializer.Serialize<List<Alert>>(existingAlerts);
-            writer.Write(json);
+            // save them to the local db
+            using (StreamWriter writer = new StreamWriter("./Data/alerts.json"))
+            {
+                if (existingAlerts != null)
+                {
+                    var json = JsonSerializer.Serialize<List<Alert>>(existingAlerts);
+                    writer.Write(json);
+                }
+                else
+                    writer.Write("");
+            }
         }
+        catch { }
     }
 }

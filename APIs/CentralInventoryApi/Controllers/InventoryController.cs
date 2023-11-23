@@ -2,15 +2,16 @@ using Microsoft.AspNetCore.Mvc;
 namespace CentralInventoryApi.Controllers;
 
 [ApiController]
-[Route("request")]
 public class InventoryController : ControllerBase
 {
-    private string received = "Order received.";
+    private string received = "Order received for item id ";
     public InventoryController() { }
 
     [HttpGet]
-    public IActionResult PostStockRequest()
+    [Route("request/{id}")]
+    public IActionResult PostStockRequest(int id)
     {
-        return Ok(received);
+        string response = received += id;
+        return Ok(response);
     }
 }
