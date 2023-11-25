@@ -34,7 +34,7 @@ public class Controller : ControllerBase
 
     [HttpPut]
     [Route("offers/{id}")]
-    public IActionResult UpdateOffer(int id, Offer offer)
+    public IActionResult UpdateOffer(int id, [FromBody] Offer offer)
     {
         if (id != offer.Id)
         {
@@ -56,7 +56,7 @@ public class Controller : ControllerBase
 
     [HttpPost]
     [Route("offers")]
-    public IActionResult CreateOffer(Offer offer)
+    public IActionResult CreateOffer([FromBody] Offer offer)
     {
         if (repository.GetOffers().FirstOrDefault(p => p.Id == offer.Id) != null)
         {
