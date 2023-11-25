@@ -6,10 +6,53 @@
       xmlns:local="clr-namespace:ClientApp"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Offers">
+      Title="Offers"
+      Loaded="Page_Loaded">
 
     <Grid Background="White">
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="47,28,0,0" VerticalAlignment="Top" Click="btnBack_Click"/>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Click="btnBack_Click"/>
+        <TextBlock Grid.Row="1" x:Name="txtHeader" Margin="50,10,0,0" FontSize="18" FontWeight="Bold" Text="Offers"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <Border BorderBrush="Black" BorderThickness="1" Width="372" Height="307" >
+                <StackPanel Margin="10,0,0,0" Height="291">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="New offer" FontSize="16"/>
+                        <CheckBox x:Name="cbLoyalsOnly" Content="Loyal Customers Only" Margin="120,10,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0">
+                        <Label Content="Code: " Width="75"/>
+                        <TextBox x:Name="txtCode" Width="275" Typography.Capitals="AllPetiteCaps"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,10,0">
+                        <Label Content="Description" Width="75"/>
+                        <TextBox x:Name="txtDescription" Height="63" Width="275" TextWrapping="Wrap" AcceptsReturn="True" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,10,0">
+                        <Label Content="Item IDs" Width="75"/>
+                        <TextBox x:Name="txtItemIds" Width="275"/>
+                    </StackPanel>
+                    <Button x:Name="btnAddOffer" Content="Add Offer" Margin="10,10,10,0" Click="btnAddOffer_Click"/>
+                </StackPanel>
+            </Border>
+            <StackPanel Margin="10,0,10,0" Width="417" >
+                <Label Content="Available offers" FontSize="16"/>
+                <Label Content="Loyal customers only"/>
+                <ListBox x:Name="lstAllOffers" Margin="10,10,10,10" Height="250">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox Content="{Binding CheckboxText}" Checked="ChangeTargetCustomers" Unchecked="ChangeTargetCustomers" IsChecked="{Binding LoyalCustomersOnly}"/>
+                                <TextBlock Text="{Binding OfferString}" Margin="20,0,0,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
