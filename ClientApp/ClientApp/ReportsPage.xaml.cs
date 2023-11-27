@@ -1,4 +1,7 @@
-﻿using System.Net.Http;
+﻿using ClientApp.Models.Reports;
+using System.Net.Http;
+using System.Text.Json;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace ClientApp
@@ -27,18 +30,28 @@ namespace ClientApp
 
         private async void GetReport(string option)
         {
-            using (HttpClient client = new HttpClient())
+            try
             {
-                string url = ReportsApiUrlBase + "/" + option;
-                var response = await client.GetStringAsync(url);
-                if (response != null)
+                using (HttpClient client = new HttpClient())
                 {
-                    report = response;
-                    report = report.Substring(1, report.Length - 2);
-
-                    txtReport.Text = report;
+                    string url = ReportsApiUrlBase + "/" + option;
+                    var response = await client.GetStringAsync(url);
+                    if (response != null)
+                    {
+                        Report report = JsonSerializer.Deserialize<Report>(response)!;
+                        txtCode.Text = report.Code;
+                        txtCustomers.Text = FormatNumber(report.Customers);
+                        txtIncome.Text = "£ " + FormatMoney(report.Income);
+                        txtProfit.Text = "£ " + FormatMoney(report.Profit);
+                        txtPurchases.Text = FormatNumber(report.Purchases);
+                    }
                 }
             }
+            catch (HttpRequestException ex)
+            {
+                MessageBox.Show("Reports service not connected");
+            }
+            catch { }
         }
 
         private void btnWeek_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -54,6 +67,15 @@ namespace ClientApp
         private void btnYear_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             GetReport("yearly");
+        }
+
+        private string FormatMoney(long number)
+        {
+            return $"{number:n}";
+        }
+        private string FormatNumber(long number)
+        {
+            return $"{number:n0}";
         }
     }
 }

@@ -72,6 +72,12 @@ namespace ClientApp
         private void btnAddOffer_Click(object sender, RoutedEventArgs e)
         {
             var item = offers.OrderByDescending(p => p.Id).FirstOrDefault();
+            var sameCodeItem = offers.Where(p => p.Code.Equals(txtCode.Text)).FirstOrDefault();
+            if (sameCodeItem != null)
+            {
+                MessageBox.Show("Offer with the same code already exists");
+                return;
+            }
 
             if (item != null)
             {
@@ -87,7 +93,16 @@ namespace ClientApp
                 items.Add(new AllOffersItem(offer));
                 lstAllOffers.ItemsSource = items;
                 AddOffer(offer);
+                ClearFields();
             }
+        }
+
+        private void ClearFields()
+        {
+            txtCode.Text = string.Empty;
+            txtDescription.Text = string.Empty;
+            txtItemIds.Text = string.Empty;
+            cbLoyalsOnly.IsChecked = false;
         }
 
         private async void AddOffer(Offer offer)
