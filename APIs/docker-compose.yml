@@ -1,0 +1,42 @@
+version: '3.4'
+
+services:
+  centralinventoryapi:
+    build: ./CentralInventoryApi
+    ports:
+      - "3002:80"
+
+  warehouseapi:
+    build: ./WarehouseApi
+    ports:
+      - "3001:80"
+
+  inventorycontrolapi:
+    build: ./InventoryControl
+    ports:
+      - "3003:80"
+
+  pricecontrolapi:
+    build: ./PriceControlApi
+    ports:
+      - "3004:80"
+
+  enablingapi:
+    build: ./EnablingApi
+    ports:
+      - "3005:80"
+
+  offersapi:
+    build: ./OffersApi
+    ports:
+      - "3006:80"
+
+  reportsapi:
+    build: ./ReportsApi
+    ports:
+      - "3007:80"
+
+  financialapprovalapi:
+    build: ./FinancialApprovalApi
+    ports:
+      - "3008:80"

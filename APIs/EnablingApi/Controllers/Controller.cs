@@ -21,7 +21,7 @@ public class Controller : ControllerBase
 
     [HttpPut]
     [Route("requests/{id}")]
-    public IActionResult UpdateRequest(int id, Request request)
+    public IActionResult UpdateRequest(int id, [FromBody] Request request)
     {
         if (id != request.Id)
         {
