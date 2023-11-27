@@ -72,7 +72,7 @@ namespace ClientApp
             var requests = dgRequests.ItemsSource as ObservableCollection<RequestItem>;
             requests.Remove(item);
             requests.Add(item);
-            dgRequests.ItemsSource = requests;
+            dgRequests.ItemsSource = new ObservableCollection<RequestItem>(requests.OrderBy(p => p.Request.Id));
 
             string url = FinanceApprovalApiUrl + "/" + item.Request.Id;
             string json = JsonSerializer.Serialize<FinancialRequest>(item.Request);

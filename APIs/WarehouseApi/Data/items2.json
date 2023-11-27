@@ -1,58 +1,30 @@
 [
     {
-        "Id": 1,
-        "Name": "Chair",
-        "Category": "Furniture",
-        "Quantity": 1,
+        "Id": 73202,
+        "Name": "Cup",
+        "Category": "Kitchenware",
+        "Quantity": 5678,
         "DaysSinceLastOrder": 15
     },
     {
-        "Id": 2,
-        "Name": "Sofa",
-        "Category": "Furniture",
+        "Id": 27282,
+        "Name": "Earphones",
+        "Category": "Electronics",
         "Quantity": 19,
-        "DaysSinceLastOrder": 4
+        "DaysSinceLastOrder": 67
     },
     {
-        "Id": 3,
-        "Name": "Towel",
+        "Id": 33839,
+        "Name": "Earrings",
         "Category": "Accessories",
-        "Quantity": 30,
+        "Quantity": 5678,
         "DaysSinceLastOrder": 10
     },
     {
-        "Id": 4,
-        "Name": "Towel Rack",
-        "Category": "Accessories",
-        "Quantity": 100,
-        "DaysSinceLastOrder": 2
-    },
-    {
-        "Id": 5,
-        "Name": "Table",
-        "Category": "Furniture",
-        "Quantity": 5,
-        "DaysSinceLastOrder": 5
-    },
-    {
-        "Id": 6,
-        "Name": "Candle",
+        "Id": 41236,
+        "Name": "Can",
         "Category": "Decorations",
-        "Quantity": 100,
-        "DaysSinceLastOrder": 1
-    },
-    {
-        "Id": 7,
-        "Name": "Painting",
-        "Category": "Decorations",
-        "Quantity": 30,
-        "DaysSinceLastOrder": 5
-    },
-    {
-        "Id": 9,
-        "Name": "Pillow",
-        "Category": "Bedding",
-        "Quantity": 50,
-        "DaysSinceLastOrder": 3
+        "Quantity": 101,
+        "DaysSinceLastOrder": 33
     }
 ]

@@ -46,6 +46,13 @@ public partial class PriceControlPage : Page
                 items = JsonSerializer.Deserialize<ObservableCollection<Item>>(response, options)!;
                 foreach (var item in items) { item.PropertyChanged += Item_PropertyChanged; }
                 dgItems.ItemsSource = items;
+                foreach (var column in dgItems.Columns)
+                {
+                    if (!column.Header.ToString().Equals("Price"))
+                    {
+                        column.IsReadOnly = true;
+                    }
+                }
             }
             catch (HttpRequestException ex)
             {

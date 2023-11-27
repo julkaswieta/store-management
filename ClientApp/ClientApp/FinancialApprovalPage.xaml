@@ -23,7 +23,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Button Name="btnApproveRequest" Content="{Binding ButtonText}" Click="btnApproveRequest_Click"/>
+                        <Button Name="btnApproveRequest" Content="{Binding ButtonText}" Click="btnApproveRequest_Click" Width="50"/>
                         <TextBlock Text="{Binding RequestText}" Margin="20,0,0,0"/>
                     </StackPanel>
                 </DataTemplate>

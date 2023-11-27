@@ -11,7 +11,6 @@ public sealed class InventoryController : IInventoryController
     // private static readonly string centralApiUrl = "http://localhost:3002/request";
 
     private static readonly string warehouseApiUrl = "http://host.docker.internal:3001/items";
-    private static readonly string centralApiUrl = "http://host.docker.internal:3002/request";
 
     public InventoryController(IRepository repository)
     {
@@ -27,8 +26,6 @@ public sealed class InventoryController : IInventoryController
                 try
                 {
                     string responseBody = await client.GetStringAsync(warehouseApiUrl);
-
-                    Console.WriteLine(responseBody);
 
                     ProcessStockUpdate(responseBody);
 
@@ -74,7 +71,7 @@ public sealed class InventoryController : IInventoryController
                 localItem = item;
                 localItems.Add(item);
             }
-            if (item.Quantity < 20 && item.DaysSinceLastOrder > 3)
+            if (item.Quantity < 100 && item.DaysSinceLastOrder > 3)
             {
                 GenerateAlert(item.Id);
             }

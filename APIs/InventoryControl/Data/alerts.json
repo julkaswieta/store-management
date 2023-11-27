@@ -3,25 +3,5 @@
         "Id": 1,
         "ItemId": 1,
         "DateTriggered": "11/19/2023 17:28:33"
-    },
-    {
-        "Id": 2,
-        "ItemId": 2,
-        "DateTriggered": "11/19/2023 17:28:33"
-    },
-    {
-        "Id": 3,
-        "ItemId": 5,
-        "DateTriggered": "11/19/2023 17:28:33"
-    },
-    {
-        "Id": 4,
-        "ItemId": 8,
-        "DateTriggered": "11/19/2023 17:28:53"
-    },
-    {
-        "Id": 5,
-        "ItemId": 14,
-        "DateTriggered": "11/19/2023 17:28:53"
     }
 ]
